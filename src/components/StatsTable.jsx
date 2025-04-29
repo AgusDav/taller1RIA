@@ -19,9 +19,9 @@ const StatsTable = () => {
         <Grid 
           container 
           spacing={4} 
-          justifyContent="center" // centramos los ítems
-          maxWidth="md" // ancho máximo
-          margin="0 auto" // centramos el Grid en la página
+          justifyContent="center" 
+          maxWidth="md" 
+          margin="0 auto" 
         >
           {stats.map((stat, index) => (
             <Grid item xs={12} sm={6} md={3} key={stat.label}>

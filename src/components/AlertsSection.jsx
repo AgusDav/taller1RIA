@@ -71,7 +71,7 @@ const AlertsSection = () => {
           </Stack>
         </Grid>
 
-        {/* Alerta emergente (Snackbar) */}
+        {/* Alerta emergente */}
         <Snackbar
           open={open}
           autoHideDuration={3000}

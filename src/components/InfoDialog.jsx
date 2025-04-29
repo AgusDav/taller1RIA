@@ -33,7 +33,7 @@ import {
           </Typography>
           <Divider sx={{ my: 3 }} />
           <Typography variant="subtitle2" color="text.secondary" sx={{ fontStyle: 'italic' }}>
-            © 2025 Demo de Material Design - Todos los derechos reservados
+            © Demo de Material Design
           </Typography>
         </DialogContent>
         <DialogActions sx={{ px: 3, pb: 3 }}>

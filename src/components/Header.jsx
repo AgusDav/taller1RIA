@@ -1,8 +1,4 @@
-import { useState } from 'react';
-import { 
-  AppBar, Toolbar, Typography, Button, IconButton, Badge, 
-  Paper, Tabs, Tab, Box
-} from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, IconButton, Badge, Paper, Tabs, Tab} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import HomeIcon from '@mui/icons-material/Home';
