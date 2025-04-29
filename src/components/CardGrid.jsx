@@ -6,10 +6,23 @@ const CardGrid = () => {
   return (
     <>
       <Typography variant="h6" gutterBottom sx={{ mt: 2, mb: 3, fontWeight: 'bold' }}>
-        Ejemplos de tarjetas
+        Tipos de tarjetas
       </Typography>
-      <Grid container spacing={3} sx={{ mb: 3 }}>
-        <Grid item xs={12} sm={6} md={4}>
+
+      <Grid 
+        container 
+        spacing={3} 
+        sx={{ 
+          mb: 3, 
+          flexWrap: 'nowrap', 
+          overflowX: 'auto',
+          py: 4,
+          scrollbarWidth: 'thin', 
+          '&::-webkit-scrollbar': { height: 6 }, 
+          '&::-webkit-scrollbar-thumb': { backgroundColor: 'primary.main', borderRadius: 3 }
+        }}
+      >
+        <Grid item sx={{ minWidth: 300 }}>
           <Card 
             elevation={4}
             sx={{ 
@@ -42,7 +55,8 @@ const CardGrid = () => {
             </CardActions>
           </Card>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+
+        <Grid item sx={{ minWidth: 300 }}>
           <Card elevation={4} sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
             <CardContent sx={{ flexGrow: 1 }}>
               <Typography variant="h6" gutterBottom>Formulario</Typography>
@@ -88,7 +102,8 @@ const CardGrid = () => {
             </CardActions>
           </Card>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+
+        <Grid item sx={{ minWidth: 300 }}>
           <Card elevation={4}>
             <CardContent>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>

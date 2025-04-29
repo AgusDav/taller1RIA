@@ -40,6 +40,14 @@ export const getAppTheme = (mode) => {
       borderRadius: 12,
     },
     components: {
+      MuiAppBar: {
+        styleOverrides: {
+          root: {
+            backgroundColor: '#6200EE', // Color violeta que definiste para modo claro
+            color: '#FFFFFF', // Texto blanco
+          },
+        },
+      },
       MuiCard: {
         styleOverrides: {
           root: {

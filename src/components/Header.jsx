@@ -93,13 +93,13 @@ const Header = ({
         </Button>
       </Toolbar>
       {/* Tabs para navegación secundaria */}
-      <Paper square sx={{ width: '100%', bgcolor: 'primary.dark' }}>
+      <Paper square sx={{ width: '100%', bgcolor: 'primary.white' }}>
         <Tabs
           value={tabValue}
           onChange={handleTabChange}
           variant="fullWidth"
           indicatorColor="secondary"
-          textColor="inherit"
+          textColor="primary"
         >
           <Tab icon={<HomeIcon />} label="Inicio" />
           <Tab icon={<FavoriteIcon />} label="Favoritos" />

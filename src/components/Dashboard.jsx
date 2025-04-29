@@ -12,7 +12,7 @@ const Dashboard = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 1100,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
@@ -35,16 +35,13 @@ const Dashboard = () => {
           animate={{ scale: 1 }}
           transition={{ delay: 0.5 }}
         >
-          <Alert severity="info" sx={{ mb: 4 }}>
-            Bienvenido al Dashboard de Ejemplo ✨
-          </Alert>
         </motion.div>
 
         {/* Tabla animada */}
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6 }}
         >
           <Typography variant="h6" gutterBottom>
@@ -72,7 +69,7 @@ const Dashboard = () => {
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6 }}
         >
           <Typography variant="h6" sx={{ mt: 6, mb: 2 }}>

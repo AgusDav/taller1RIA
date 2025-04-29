@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, CssBaseline, ThemeProvider, Typography } from '@mui/material';
+import { Box, CssBaseline, ThemeProvider, Typography, Slide } from '@mui/material';
 import { getAppTheme } from './theme';
 
 // Componentes
@@ -13,7 +13,6 @@ import LoadingIndicators from './components/LoadingIndicators';
 import StatsTable from "./components/StatsTable";
 import ContentCarousel from "./components/ContentCarousel";
 import AlertsSection from "./components/AlertsSection";
-import TransitionPage from "./components/TransitionPage";
 import ScrollSection from "./components/ScrollSection";
 import Dashboard from "./components/Dashboard";
 
@@ -57,28 +56,23 @@ function App() {
     setDialogOpen(false);
   };
 
-  // Función para el menú lateral
-  const handleListItemClick = (index) => {
-    setDrawerOpen(false);
-    // Aquí podrías añadir más lógica según el ítem seleccionado
-  };
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box 
-        sx={{ 
-          flexGrow: 1, 
-          display: 'flex', 
-          flexDirection: 'column', 
-          minHeight: '100vh', 
-          width: '100%',
-          background: darkMode 
-            ? 'linear-gradient(135deg, #121212 0%, #1e1e1e 100%)' 
-            : 'linear-gradient(135deg, #f5f5f5 0%, #fff 100%)',
-          transition: 'background 0.5s ease'
-        }}
-      >
+        <Box 
+          sx={{ 
+            flexGrow: 1, 
+            display: 'flex', 
+            flexDirection: 'column', 
+            minHeight: '100vh', 
+            width: '100%',
+            background: darkMode 
+              ? 'linear-gradient(135deg, #121212 0%, #1e1e1e 100%)' 
+              : 'linear-gradient(135deg, #f5f5f5 0%, #fff 100%)',
+            transition: 'background 0.5s ease'
+          }}
+        >
+          
         {/* Header con AppBar */}
         <Header 
           drawerOpen={drawerOpen}
@@ -110,53 +104,90 @@ function App() {
           {/* Indicadores de progreso */}
           <LoadingIndicators loading={loading} />
           
-          {/* Título de la sección según tab */}
-          <Typography 
-            variant="h5" 
-            gutterBottom
-            sx={{ 
-              fontWeight: 'bold',
-              color: 'primary.main',
-              fontSize: { xs: '1.5rem', md: '1.75rem' },
-              mb: 3,
-              opacity: loading ? 0.5 : 1,
-              transition: 'opacity 0.3s'
-            }}
-          >
-            {tabValue == 0 && "Bienvenido a la demo de Material UI"}
-            {tabValue == 1 && "Tus elementos favoritos"}
-            {tabValue == 2 && "Perfil de usuario"}
-          </Typography>
-          
-          {/* Sección de formulario - Solo visible en tab 0 */}
-          <FormSection 
-            tabValue={tabValue}
-            name={name}
-            setName={setName}
-            handleSnackbarOpen={handleSnackbarOpen}
-            alertOpen={alertOpen}
-            setAlertOpen={setAlertOpen}
-          />
-          
+          {/* Sección Inicio - Solo visible en tab 0 */}
+          <Slide direction="right" in={tabValue === 0} mountOnEnter unmountOnExit timeout={500}>
+            <Box>
+              <Typography 
+                variant="h5" 
+                gutterBottom
+                sx={{ 
+                  fontWeight: 'bold',
+                  color: 'primary.main',
+                  fontSize: { xs: '1.5rem', md: '1.75rem' },
+                  mb: 3,
+                  opacity: loading ? 0.5 : 1,
+                  transition: 'opacity 0.3s'
+                }}
+              >
+                Bienvenido a la demo de Material UI
+              </Typography>
+
+              <FormSection 
+                tabValue={tabValue}
+                name={name}
+                setName={setName}
+                handleSnackbarOpen={handleSnackbarOpen}
+                alertOpen={alertOpen}
+                setAlertOpen={setAlertOpen}
+              />
+            </Box>
+          </Slide>
+
           {/* Sección Favoritos - Solo visible en tab 1 */}
-          {tabValue == 1 && (
-            <Typography paragraph>
-              Esta sección mostraría tus elementos favoritos. Está en desarrollo.
-            </Typography>
-          )}
-          
+          <Slide direction="left" in={tabValue === 1} mountOnEnter unmountOnExit timeout={500}>
+            <Box>
+              <Typography 
+                variant="h5" 
+                gutterBottom
+                sx={{ 
+                  fontWeight: 'bold',
+                  color: 'primary.main',
+                  fontSize: { xs: '1.5rem', md: '1.75rem' },
+                  mb: 3,
+                  opacity: loading ? 0.5 : 1,
+                  transition: 'opacity 0.3s'
+                }}
+              >
+                Tus elementos favoritos
+              </Typography>
+
+              <Typography paragraph>
+                Esta sección mostraría tus elementos favoritos. Está en desarrollo.
+              </Typography>
+            </Box>
+          </Slide>
+
           {/* Sección Perfil - Solo visible en tab 2 */}
-          {tabValue == 2 && (
-            <Typography paragraph>
-              Esta sección mostraría tu perfil de usuario. Está en desarrollo.
-            </Typography>
-          )}
+          <Slide direction="left" in={tabValue === 2} mountOnEnter unmountOnExit timeout={500}>
+            <Box>
+              <Typography 
+                variant="h5" 
+                gutterBottom
+                sx={{ 
+                  fontWeight: 'bold',
+                  color: 'primary.main',
+                  fontSize: { xs: '1.5rem', md: '1.75rem' },
+                  mb: 3,
+                  opacity: loading ? 0.5 : 1,
+                  transition: 'opacity 0.3s'
+                }}
+              >
+                Perfil de usuario
+              </Typography>
+
+              <Typography paragraph>
+                Esta sección mostraría tu perfil de usuario. Está en desarrollo.
+              </Typography>
+            </Box>
+          </Slide>
           
           {/* Sección de tarjetas - Visible en todas las tabs */}
           <CardGrid />
           
+          {/* Aparecen con animacion*/}
           <StatsTable />
 
+          {/* Distintos tipos de alertas*/}
           <AlertsSection />
 
           <Dashboard />
